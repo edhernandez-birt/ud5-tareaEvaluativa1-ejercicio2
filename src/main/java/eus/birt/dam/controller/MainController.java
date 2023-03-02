@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import eus.birt.dam.repository.ComentarioRepository;
 import eus.birt.dam.repository.NoticiaRepository;
+import eus.birt.dam.repository.UsuarioRepository;
 
 
 @Controller
@@ -16,6 +17,8 @@ import eus.birt.dam.repository.NoticiaRepository;
    	private ComentarioRepository comentarioRepository;
 	@Autowired
    	private NoticiaRepository noticiaRepository;
+	@Autowired
+	private UsuarioRepository usuarioRepository;
 	
 	@GetMapping ({"/","/welcome","/index"})
 	public String welcome() {
@@ -29,9 +32,15 @@ import eus.birt.dam.repository.NoticiaRepository;
 	}
 	
 	@GetMapping ({"/noticias"})
-	public String getTeams(Model model) {
+	public String getNoticias(Model model) {
 		model.addAttribute("noticias", noticiaRepository.findAll());
 		return "noticias";
+	}
+	
+	@GetMapping ({"/usuarios"})
+	public String getUsuarios(Model model) {
+		model.addAttribute("usuarios", usuarioRepository.findAll());
+		return "usuarios";
 	}
 }
 	

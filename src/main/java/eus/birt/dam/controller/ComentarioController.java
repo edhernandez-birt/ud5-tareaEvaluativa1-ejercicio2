@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import eus.birt.dam.domain.Comentario;
 import eus.birt.dam.repository.ComentarioRepository;
 import eus.birt.dam.repository.NoticiaRepository;
+import eus.birt.dam.repository.UsuarioRepository;
 
 @Controller
 @RequestMapping ("/comentarios")
@@ -23,6 +24,9 @@ public class ComentarioController {
 	
 	@Autowired
 	NoticiaRepository noticiaRepository;
+	
+	@Autowired
+	UsuarioRepository usuarioRepository;
 	
 	
 	@GetMapping("/delete/{id}")
@@ -36,6 +40,7 @@ public class ComentarioController {
 		Comentario comentario = new Comentario();
 		model.addAttribute("comentario", comentario);
 		model.addAttribute("noticias", noticiaRepository.findAll());
+		model.addAttribute("usuarios", usuarioRepository.findAll());
 		return "comentarioForm";
 	}
 	
@@ -49,6 +54,7 @@ public class ComentarioController {
 	public String initEditForm(@PathVariable("id") Long id, Model model) {	
 		model.addAttribute("comentario", comentarioRepository.findById(id));
 		model.addAttribute("noticias", noticiaRepository.findAll());
+		model.addAttribute("usuarios", usuarioRepository.findAll());
 		return "comentarioForm";
 	}
 }

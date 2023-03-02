@@ -17,6 +17,7 @@
 	<table class="table table-striped px-2 m-2">
 		<thead>
 			<tr>
+			    <th>Usuario</th>
 				<th>Comentario</th>
 				<th>Fecha</th>
 				<th>Noticia</th>
@@ -28,6 +29,7 @@
 				<td colspan="2">No hay comentarios</td>
 			</tr>
 			<tr th:each="comentario : ${comentarios}">
+				<td><span th:text="${comentario.usuario?.email}"> Comentario </span></td>
 				<td><span th:text="${comentario.texto}"> Comentario </span></td>
 				<td><span th:text="${comentario.fechaComentario}"> Fecha
 						de creacion </span></td>

@@ -40,6 +40,10 @@ public class Comentario {
 	@ManyToOne
 	@JoinColumn (name = "noticia_id")
 	private Noticia noticia;
+	
+	@ManyToOne
+	@JoinColumn (name = "usuario_id")
+	private Usuario usuario;
 
 	public Comentario(String texto) {
 		super();
