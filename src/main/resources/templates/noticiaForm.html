@@ -25,14 +25,17 @@
 				type="text" placeholder="Titulo de la noticia" th:field="*{titulo}"></input>
 		</div>
 		<div class="form-group">
-			<label for="textoInput">Texto de la noticia</label> 
-			    <textarea class="form-control" maxlength="250" rows="3" placeholder="Desarrollo de la noticia" th:field="*{texto}"></textarea>
-		
-		<!-- 	<input class="form-control"
+			<label for="textoInput">Texto de la noticia</label>
+			<textarea class="form-control" maxlength="250" rows="3"
+				placeholder="Desarrollo de la noticia" th:field="*{texto}"></textarea>
+
+			<!-- 	<input class="form-control"
 				type="text" placeholder="Texto de la noticia" th:field="*{texto}">
 				</input>  -->
 		</div>
-		<button type="submit" class="btn btn-primary">Enviar</button>
+		<br />
+
+		<button type="submit" class="btn btn-primary px-2">Enviar</button>
 	</form>
 
 	<div th:replace="fragments/footer :: footer"></div>

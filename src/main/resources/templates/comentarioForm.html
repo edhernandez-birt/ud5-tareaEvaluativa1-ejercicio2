@@ -29,7 +29,7 @@
 		<div class="form-group">
 			<label for="noticia">Noticia</label> <select th:field="*{noticia}"
 				class="form-control">
-				<option value="-1">---</option>
+				<option value="-1">Elige una noticia</option>
 				<option th:each="noticia : ${noticias}" th:value="${noticia.id}"
 					th:text="${noticia.titulo}">Noticia</option>
 			</select>
@@ -38,12 +38,13 @@
 		<div class="form-group">
 			<label for="usuario">Usuario</label> <select th:field="*{usuario}"
 				class="form-control">
-				<option value="-1">---</option>
+				<option value="-1">Anónimo</option>
 				<option th:each="usuario : ${usuarios}" th:value="${usuario.id}"
 					th:text="${usuario.email}">Usuario</option>
 			</select>
 		</div>
-		<button type="submit" class="btn btn-primary">Enviar</button>
+		<br />
+		<button type="submit" class="btn btn-primary px-2">Enviar</button>
 	</form>
 
 	<div th:replace="fragments/footer :: footer"></div>

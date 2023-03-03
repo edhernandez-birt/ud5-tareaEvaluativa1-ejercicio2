@@ -17,7 +17,7 @@
 	<table class="table table-striped px-2 m-2">
 		<thead>
 			<tr>
-			    <th>Usuario</th>
+				<th>Usuario</th>
 				<th>Comentario</th>
 				<th>Fecha</th>
 				<th>Noticia</th>
@@ -29,24 +29,24 @@
 				<td colspan="2">No hay comentarios</td>
 			</tr>
 			<tr th:each="comentario : ${comentarios}">
-				<td><span th:text="${comentario.usuario?.email}"> Comentario </span></td>
+			<!-- Si el comentario no tiene usuario asociado lo mostramos como anónimo, sino el email del usuario -->
+				<td><span th:text="${comentario.usuario?.email} ? ${comentario.usuario.email} : 'Anónimo'"></span> </td>
 				<td><span th:text="${comentario.texto}"> Comentario </span></td>
 				<td><span th:text="${comentario.fechaComentario}"> Fecha
-						de creacion </span></td>
+						del comentario </span></td>
 				<td><span th:text="${comentario.noticia?.titulo}">
 						Noticia </span></td>
-				<td class="actions">
-					<a
+				<td class="actions"><a
 					th:href="@{/comentarios/edit/{id}(id=${comentario.id})}"
-					class="btn btn-primary">Editar</a> 
-					<a
+					class="btn btn-primary">Editar</a> <a
 					th:href="@{/comenterios/delete/{id}(id=${comentario.id})}"
 					class="btn btn-danger">Borrar</a></td>
 			</tr>
 		</tbody>
 	</table>
 
-	<a th:href="@{/comentarios/new}" class="btn btn-success px-2 m-2">Nuevo comentario</a>
+	<a th:href="@{/comentarios/new}" class="btn btn-success px-2 m-2">Nuevo
+		comentario</a>
 	<div th:replace="fragments/footer :: footer"></div>
 	<br />
 	<script
